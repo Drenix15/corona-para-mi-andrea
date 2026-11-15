@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff0c9">
+
+    <title>Una sorpresa para Andrea 💛</title>
+
+    <!-- Nuestra hoja de estilos (segunda etapa) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Nuestra programación (tercera etapa) -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =====================================
+         MÚSICA DE FONDO
+    ====================================== -->
+
+    <audio id="musica-fondo" loop>
+        <source src="musica/nuestra-cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+
+    <!-- =====================================
+         PANTALLA 1: BIENVENIDA Y SOBRE
+    ====================================== -->
+
+    <main id="contenedor-principal">
+
+        <section id="pantalla-bienvenida" class="pantalla activa">
+
+            <div class="contenido-bienvenida">
+
+                <div class="decoracion-superior">
+                    ✨ 💛 ✨
+                </div>
+
+                <h1>¡Hola, Andrea!</h1>
+
+                <p class="subtitulo">
+                    Tengo algo muy especial para ti...
+                </p>
+
+                <div class="sobre-contenedor">
+
+                    <button
+                        id="abrir-sobre"
+                        class="sobre"
+                        aria-label="Abrir tu cartita especial"
+                    >
+
+                        <div class="sobre-parte-trasera"></div>
+
+                        <div class="carta-dentro">
+                            <span>Para mi niña hermosa 💛</span>
+                        </div>
+
+                        <div class="sobre-cuerpo"></div>
+
+                        <div class="sobre-solapa"></div>
+
+                        <div class="sello">
+                            💛
+                        </div>
+
+                    </button>
+
+                </div>
+
+                <p class="instruccion">
+                    Toca el sobre para descubrir tu sorpresa 💌
+                </p>
+
+                <div class="decoracion-inferior">
+                    🍮 🐾 💛
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PANTALLA 2: LA CORONITA
+        ====================================== -->
+
+        <section id="pantalla-corona" class="pantalla">
+
+            <div class="contenido-corona">
+
+                <p class="etiqueta">
+                    Una sorpresa para ti
+                </p>
+
+                <h2>Una coronita para mi reina 👑</h2>
+
+                <p class="texto-corona">
+                    Porque para mí eres una persona única
+                    y mereces sentirte especial todos los días.
+                </p>
+
+                <div class="corona-animada">
+                    👑
+                </div>
+
+                <p class="instruccion-corona">
+                    Toca el botón para recoger la coronita.
+                </p>
+
+                <button
+                    id="recoger-corona"
+                    class="boton-principal"
+                >
+                    Recoger mi coronita 💛
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-regresar"
+                    data-volver="pantalla-bienvenida"
+                >
+                    ← Regresar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PANTALLA 3: DEDICATORIA
+        ====================================== -->
+
+        <section id="pantalla-dedicatoria" class="pantalla">
+
+            <div class="contenido-dedicatoria">
+
+                <div class="adorno">
+                    💗 ✨ 💗
+                </div>
+
+                <h2>Para ti, Andrea</h2>
+
+                <div class="carta-romantica">
+
+                    <p>
+                        Mi querida Andrea:
+                    </p>
+
+                    <p>
+                        Aunque Cañete y Arequipa nos separen,
+                        quiero que sepas que siempre encuentro
+                        la manera de llegar a tu corazón.
+                    </p>
+
+                    <p>
+                        No importa cuántos kilómetros existan
+                        entre nosotros, siempre habrá un motivo
+                        para sonreír cuando piense en ti.
+                    </p>
+
+                    <p>
+                        Eres alguien muy especial en mi vida
+                        y quiero seguir construyendo recuerdos
+                        hermosos contigo.
+                    </p>
+
+                    <p class="firma">
+                        Con muchísimo cariño,
+                        tu persona especial Angelo. 💛
+                    </p>
+
+                </div>
+
+                <div class="pompompurin-dedicatoria">
+                    <img
+                        src="imagenes/pompompurin-corazon.png"
+                        alt="Pompompurin sosteniendo un corazón"
+                    >
+                </div>
+
+                <button
+                    id="ir-recuerdos"
+                    class="boton-principal"
+                >
+                    Descubrir nuestros recuerdos 💕
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-regresar"
+                    data-volver="pantalla-corona"
+                >
+                    ← Regresar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PANTALLA 4: LAS 12 CORONITAS
+        ====================================== -->
+
+        <section id="pantalla-recuerdos" class="pantalla">
+
+            <div class="contenido-recuerdos">
+
+                <div class="adorno">
+                    ✨ 👑 ✨
+                </div>
+
+                <h2>Nuestros 12 recuerdos</h2>
+
+                <p class="introduccion-recuerdos">
+                    Doce coronitas, doce fotografías y
+                    muchos momentos que guardo en mi corazón.
+                </p>
+
+                <p class="instruccion-recuerdos">
+                    Toca cada coronita para descubrir
+                    uno de nuestros recuerdos. 💛
+                </p>
+
+
+                <!-- CUADRÍCULA DE LAS 12 CORONAS -->
+
+                <div id="cuadricula-coronas"
+                     class="cuadricula-coronas">
+
+
+                    <!-- CORONA 1 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="1">
+                        <span class="numero-recuerdo">01</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 1
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 2 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="2">
+                        <span class="numero-recuerdo">02</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 2
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 3 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="3">
+                        <span class="numero-recuerdo">03</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 3
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 4 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="4">
+                        <span class="numero-recuerdo">04</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 4
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 5 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="5">
+                        <span class="numero-recuerdo">05</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 5
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 6 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="6">
+                        <span class="numero-recuerdo">06</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 6
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 7 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="7">
+                        <span class="numero-recuerdo">07</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 7
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 8 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="8">
+                        <span class="numero-recuerdo">08</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 8
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 9 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="9">
+                        <span class="numero-recuerdo">09</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 9
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 10 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="10">
+                        <span class="numero-recuerdo">10</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 10
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 11 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="11">
+                        <span class="numero-recuerdo">11</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 11
+                        </span>
+                    </button>
+
+
+                    <!-- CORONA 12 -->
+
+                    <button class="corona-recuerdo"
+                            data-recuerdo="12">
+                        <span class="numero-recuerdo">12</span>
+                        <span class="icono-corona">👑</span>
+                        <span class="texto-corona-recuerdo">
+                            Recuerdo 12
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <!-- VENTANA PARA MOSTRAR FOTOGRAFÍAS -->
+
+                <div id="ventana-recuerdo"
+                     class="ventana-recuerdo"
+                     role="dialog"
+                     aria-modal="true"
+                     aria-labelledby="titulo-recuerdo"
+                     hidden>
+
+                    <div class="contenido-ventana">
+
+                        <button
+                            id="cerrar-recuerdo"
+                            class="cerrar-ventana"
+                            aria-label="Cerrar fotografía"
+                        >
+                            ✕
+                        </button>
+
+                        <h3 id="titulo-recuerdo">
+                            Un recuerdo nuestro 💛
+                        </h3>
+
+                        <div class="marco-fotografia">
+
+                            <img
+                                id="fotografia-recuerdo"
+                                src=""
+                                alt="Fotografía de nuestro recuerdo"
+                            >
+
+                        </div>
+
+                        <p id="dedicatoria-recuerdo">
+                            Un momento que siempre guardaré
+                            en mi corazón.
+                        </p>
+
+                        <div class="decoracion-fotografia">
+                            💗 ✨ 💗
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="ir-final"
+                    class="boton-principal"
+                >
+                    Continuar con nuestra sorpresa 💗
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-regresar"
+                    data-volver="pantalla-dedicatoria"
+                >
+                    ← Regresar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PANTALLA 5: FINAL
+        ====================================== -->
+
+        <section id="pantalla-final" class="pantalla">
+
+            <div class="contenido-final">
+
+                <div class="corazones-final">
+                    💗 💛 💗
+                </div>
+
+                <div class="pompompurin-final">
+
+                    <img
+                        src="imagenes/pompompurin-corazon.png"
+                        alt="Pompompurin con un corazón"
+                    >
+
+                </div>
+
+                <h2>Te amo, Andrea</h2>
+
+                <p class="mensaje-final">
+                    Gracias por formar parte de mi vida,
+                    por cada sonrisa, cada conversación
+                    y cada recuerdo que construimos juntos.
+                </p>
+
+                <p class="mensaje-distancia">
+                    Cañete y Arequipa podrán estar lejos,
+                    pero mi corazón siempre estará cerquita
+                    del tuyo.
+                </p>
+
+                <h3 class="frase-final">
+                    Eres mi persona favorita. 💛
+                </h3>
+
+                <div class="decoracion-final">
+                    👑 🍮 💗 ✨
+                </div>
+
+                <p class="firma-final">
+                    Hecho con amor, especialmente para ti.
+                </p>
+
+                <button
+                    type="button"
+                    class="btn-regresar"
+                    data-volver="pantalla-recuerdos"
+                >
+                    ← Regresar
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================
+         CONTROLES DE MÚSICA
+    ====================================== -->
+
+    <div id="controles-musica" class="controles-musica">
+
+        <button
+            id="boton-musica"
+            aria-label="Reproducir o pausar música"
+        >
+            🎵
+        </button>
+
+        <span id="estado-musica">
+            Nuestra canción
+        </span>
+
+    </div>
+
+
+</body>
+</html>

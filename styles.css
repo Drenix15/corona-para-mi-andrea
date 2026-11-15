@@ -1,0 +1,936 @@
+/* =========================================
+   1. CONFIGURACIÓN GENERAL
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --amarillo: #ffe69a;
+    --amarillo-oscuro: #f5c95b;
+    --crema: #fff9e9;
+    --rosa: #ffdce8;
+    --rosa-fuerte: #f5a9c4;
+    --marron: #806044;
+    --blanco: #ffffff;
+    --dorado: #e9b83f;
+    --sombra: rgba(128, 96, 68, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--crema);
+    color: var(--marron);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+    outline: 3px solid var(--dorado);
+    outline-offset: 4px;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================
+   2. PANTALLAS PRINCIPALES
+========================================= */
+
+#contenedor-principal {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.pantalla {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 35px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.pantalla.activa {
+    display: flex;
+    animation: aparecer 0.8s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h3 {
+    color: #a47745;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.7rem, 5vw, 2.7rem);
+    margin-bottom: 18px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   3. PANTALLA DE BIENVENIDA
+========================================= */
+
+#pantalla-bienvenida {
+    background:
+        radial-gradient(circle at 15% 20%, #ffffff 0 3%, transparent 4%),
+        radial-gradient(circle at 85% 75%, #ffffff 0 4%, transparent 5%),
+        linear-gradient(145deg, #fff4d2, #ffe4e9);
+}
+
+.contenido-bienvenida {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.decoracion-superior,
+.decoracion-inferior {
+    font-size: 1.8rem;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.subtitulo {
+    font-size: 1.1rem;
+    color: #a98565;
+}
+
+.instruccion {
+    font-size: 0.95rem;
+    color: #9a785a;
+    font-weight: 700;
+    animation: palpitar 2s infinite;
+}
+
+
+/* =========================================
+   4. SOBRE DE AMOR
+========================================= */
+
+.sobre-contenedor {
+    width: 290px;
+    height: 210px;
+    margin: 20px auto;
+    perspective: 1000px;
+}
+
+.sobre {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+.sobre-parte-trasera {
+    position: absolute;
+    inset: 0;
+    background: #f5c75f;
+    border-radius: 10px;
+    z-index: 1;
+    box-shadow: 0 12px 25px var(--sombra);
+}
+
+.sobre-cuerpo {
+    position: absolute;
+    inset: 0;
+    background: #ffdf9c;
+    clip-path: polygon(0 0, 50% 65%, 100% 0, 100% 100%, 0 100%);
+    z-index: 3;
+    border-radius: 10px;
+}
+
+.sobre-solapa {
+    position: absolute;
+    inset: 0;
+    background: #f5cb72;
+    clip-path: polygon(0 0, 100% 0, 50% 62%);
+    transform-origin: top;
+    z-index: 4;
+    transition: transform 0.8s ease;
+    border-radius: 10px;
+}
+
+.carta-dentro {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    left: 7.5%;
+    top: 5%;
+    background: white;
+    border-radius: 10px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-weight: 900;
+    color: #d58b9d;
+}
+
+.sello {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #f5a9bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 10px var(--sombra);
+    transition: 0.3s;
+}
+
+.sobre:hover .sello {
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+
+/* =========================================
+   5. BOTONES GENERALES
+========================================= */
+
+.boton-principal {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #f6c85e, #f5a8bd);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: 40px;
+    box-shadow: 0 7px 15px var(--sombra);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.boton-principal:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 20px var(--sombra);
+}
+
+.boton-principal:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   6. PANTALLA DE LA CORONITA
+========================================= */
+
+#pantalla-corona {
+    background: linear-gradient(145deg, #fff1c7, #ffe0e9);
+}
+
+.contenido-corona {
+    max-width: 600px;
+    width: 100%;
+}
+
+.etiqueta {
+    color: #d99ba9;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.texto-corona {
+    max-width: 450px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.corona-animada {
+    font-size: clamp(6rem, 20vw, 10rem);
+    margin: 35px 0;
+    filter: drop-shadow(0 10px 12px rgba(220, 166, 48, 0.3));
+    animation: coronaFlotante 2.5s ease-in-out infinite;
+}
+
+.instruccion-corona {
+    font-weight: 800;
+    color: #b68a55;
+}
+
+@keyframes coronaFlotante {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+
+/* =========================================
+   7. PANTALLA DE DEDICATORIA
+========================================= */
+
+#pantalla-dedicatoria {
+    background: linear-gradient(135deg, #fff7dc, #ffe3ed);
+}
+
+.contenido-dedicatoria {
+    max-width: 650px;
+    width: 100%;
+}
+
+.adorno {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.carta-romantica {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px var(--sombra);
+    border: 2px solid #ffe4b6;
+    text-align: left;
+    font-size: 1.05rem;
+}
+
+.carta-romantica p {
+    margin-bottom: 15px;
+}
+
+.firma {
+    text-align: right;
+    font-weight: 900;
+    color: #d58b9d;
+    margin-top: 20px;
+}
+
+.pompompurin-dedicatoria {
+    width: 130px;
+    margin: 20px auto;
+}
+
+.pompompurin-dedicatoria img {
+    width: 100%;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   8. PANTALLA DE LOS 12 RECUERDOS
+========================================= */
+
+#pantalla-recuerdos {
+    background: linear-gradient(145deg, #fff5d7, #ffe4ed);
+    padding-top: 45px;
+    padding-bottom: 60px;
+}
+
+.contenido-recuerdos {
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+}
+
+.introduccion-recuerdos {
+    max-width: 520px;
+    margin: 0 auto 12px;
+}
+
+.instruccion-recuerdos {
+    color: #bc8c62;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.cuadricula-coronas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.corona-recuerdo {
+    min-width: 0;
+    min-height: 145px;
+    position: relative;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fffefa, #ffe6b2);
+    border: 2px solid #f6d88c;
+    box-shadow: 0 7px 15px var(--sombra);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 12px 5px;
+}
+
+.corona-recuerdo:hover {
+    transform: translateY(-7px) scale(1.04);
+    box-shadow: 0 12px 20px rgba(196, 149, 64, 0.2);
+}
+
+.corona-recuerdo:active {
+    transform: scale(0.94);
+}
+
+.numero-recuerdo {
+    position: absolute;
+    top: 9px;
+    right: 12px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: #c59b58;
+}
+
+.icono-corona {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    filter: drop-shadow(0 4px 4px rgba(210, 160, 40, 0.2));
+}
+
+.texto-corona-recuerdo {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: #a77c50;
+}
+
+
+/* =========================================
+   9. VENTANA DE FOTOGRAFÍAS
+========================================= */
+
+.ventana-recuerdo[hidden] {
+    display: none !important;
+}
+
+.ventana-recuerdo {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(82, 57, 45, 0.65);
+    backdrop-filter: blur(7px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    animation: aparecer 0.35s ease;
+}
+
+.contenido-ventana {
+    position: relative;
+    background: #fffaf0;
+    width: 100%;
+    max-width: 430px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 35px 22px 25px;
+    border-radius: 28px;
+    border: 3px solid #f6d88c;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.contenido-ventana h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.cerrar-ventana {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #ffe1e9;
+    color: #ae7184;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.marco-fotografia {
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border: 3px solid #f4d68f;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--sombra);
+}
+
+.marco-fotografia img {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+#dedicatoria-recuerdo {
+    margin-top: 18px;
+    font-weight: 800;
+    color: #bb8291;
+    font-size: 1rem;
+}
+
+.decoracion-fotografia {
+    margin-top: 15px;
+    font-size: 1.4rem;
+}
+
+
+/* =========================================
+   10. PANTALLA FINAL
+========================================= */
+
+#pantalla-final {
+    background:
+        radial-gradient(circle at 20% 20%, #fff 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 70%, #fff 0 4px, transparent 5px),
+        linear-gradient(145deg, #fff0c5, #ffdce9);
+}
+
+.contenido-final {
+    max-width: 600px;
+    width: 100%;
+}
+
+.corazones-final {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    animation: palpitar 1.8s infinite;
+}
+
+.pompompurin-final {
+    width: 160px;
+    margin: 0 auto 20px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.pompompurin-final img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.contenido-final h2 {
+    color: #db91a7;
+    font-size: clamp(2.5rem, 9vw, 4rem);
+    animation: palpitar 2s infinite;
+}
+
+.mensaje-final {
+    max-width: 450px;
+    margin: 15px auto;
+    font-size: 1.1rem;
+}
+
+.mensaje-distancia {
+    max-width: 430px;
+    margin: 20px auto;
+    color: #a67b57;
+}
+
+.frase-final {
+    color: #d58b9d;
+    margin: 25px 0;
+    font-size: 1.4rem;
+}
+
+.decoracion-final {
+    font-size: 2rem;
+    margin: 25px 0;
+}
+
+.firma-final {
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   11. CONTROLES DE MÚSICA
+========================================= */
+
+.controles-musica {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #f4d68f;
+    border-radius: 40px;
+    box-shadow: 0 5px 15px var(--sombra);
+    backdrop-filter: blur(8px);
+}
+
+#boton-musica {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffe1e9;
+    color: #b77b8c;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+#boton-musica:hover {
+    transform: scale(1.12);
+}
+
+#estado-musica {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: #a77c50;
+}
+
+
+/* =========================================
+   12. ANIMACIONES DECORATIVAS
+========================================= */
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes palpitar {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+
+/* =========================================
+   13. DISEÑO PARA CELULARES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .pantalla {
+        padding: 30px 16px;
+    }
+
+    .sobre-contenedor {
+        width: 260px;
+        height: 185px;
+    }
+
+    .carta-romantica {
+        padding: 22px;
+        font-size: 0.95rem;
+    }
+
+    .cuadricula-coronas {
+        gap: 10px;
+    }
+
+    .corona-recuerdo {
+        min-height: 120px;
+        border-radius: 17px;
+    }
+
+    .texto-corona-recuerdo {
+        font-size: 0.7rem;
+    }
+
+    .contenido-ventana {
+        padding: 35px 15px 20px;
+    }
+
+    .marco-fotografia img {
+        max-height: 55vh;
+    }
+
+    .controles-musica {
+        bottom: 12px;
+        right: 12px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .cuadricula-coronas {
+        gap: 7px;
+    }
+
+    .corona-recuerdo {
+        min-height: 105px;
+    }
+
+    .numero-recuerdo {
+        font-size: 0.6rem;
+    }
+
+    .sobre-contenedor {
+        width: 230px;
+        height: 165px;
+    }
+
+}
+
+
+/* =========================================
+   14. ACCESIBILIDAD Y MOVIMIENTO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+
+/* =========================================
+   15. NUEVOS BOTONES PARA REGRESAR
+========================================= */
+
+.btn-regresar {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 12px auto 5px;
+    padding: 11px 23px;
+    border: 2px solid #f4d68f;
+    border-radius: 35px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #a77c50;
+    font-size: 0.95rem;
+    font-weight: 900;
+    box-shadow: 0 5px 13px var(--sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background: #ffe6ed;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 17px var(--sombra);
+}
+
+.btn-regresar:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================
+   16. ADORNOS CON MOVIMIENTO SUAVE
+========================================= */
+
+/* Brillitos alrededor de los adornos existentes */
+
+.adorno,
+.decoracion-superior,
+.decoracion-inferior,
+.decoracion-final,
+.decoracion-fotografia {
+    animation: adornoFlotante 3s ease-in-out infinite;
+}
+
+.decoracion-inferior {
+    animation-delay: 0.8s;
+}
+
+.decoracion-final {
+    animation-delay: 0.5s;
+}
+
+.decoracion-fotografia {
+    animation-delay: 0.4s;
+}
+
+@keyframes adornoFlotante {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+        filter: drop-shadow(0 0 0 rgba(233, 184, 63, 0));
+    }
+
+    50% {
+        transform: translateY(-7px) rotate(3deg);
+        filter: drop-shadow(0 3px 5px rgba(233, 184, 63, 0.25));
+    }
+}
+
+
+/* Movimiento individual de las coronitas de recuerdos */
+
+.corona-recuerdo .icono-corona {
+    display: inline-block;
+    animation: coronaPequena 2.8s ease-in-out infinite;
+}
+
+.corona-recuerdo:nth-child(2n) .icono-corona {
+    animation-delay: 0.4s;
+}
+
+.corona-recuerdo:nth-child(3n) .icono-corona {
+    animation-delay: 0.8s;
+}
+
+@keyframes coronaPequena {
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(4deg);
+    }
+}
+
+
+/* Pequeño brillo al pasar por las tarjetas */
+
+.corona-recuerdo {
+    overflow: hidden;
+}
+
+.corona-recuerdo::after {
+    content: "✦";
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    color: rgba(233, 184, 63, 0.65);
+    font-size: 0.85rem;
+    animation: destello 2.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.corona-recuerdo:nth-child(2n)::after {
+    animation-delay: 0.7s;
+}
+
+.corona-recuerdo:nth-child(3n)::after {
+    animation-delay: 1.2s;
+}
+
+@keyframes destello {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(0.8) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3) rotate(45deg);
+    }
+}
+
+
+/* Movimiento delicado de Pompompurin */
+
+.pompompurin-dedicatoria img {
+    animation: pompompurinFlotante 3.5s ease-in-out infinite;
+}
+
+@keyframes pompompurinFlotante {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* Ajustes de los botones en pantallas pequeñas */
+
+@media (max-width: 600px) {
+
+    .btn-regresar {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-top: 18px;
+    }
+
+}
+
+
+/* Respetar la preferencia de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .adorno,
+    .decoracion-superior,
+    .decoracion-inferior,
+    .decoracion-final,
+    .decoracion-fotografia,
+    .corona-recuerdo .icono-corona,
+    .corona-recuerdo::after,
+    .pompompurin-dedicatoria img {
+        animation: none !important;
+    }
+
+}
